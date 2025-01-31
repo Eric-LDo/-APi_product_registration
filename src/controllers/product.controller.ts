@@ -21,7 +21,7 @@ export class ProductController {
         return this.ProductService.updateProduct(body);
     }
 
-    @Get('/list/:id')
+    @Get('/list/:userId')
     getManyProducts(@Param() userId: GetMenyProducts) {
         return this.ProductService.getManyProducts(userId);
     }

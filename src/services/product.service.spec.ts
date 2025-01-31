@@ -6,6 +6,7 @@ import { CreateProduct, DeleteProduct, GetMenyProducts, GetProduct, UpdateProduc
 describe('ProductService', () => {
   let service: ProductService;
   let prisma: PrismaClient;
+  let idtest: string
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -22,16 +23,28 @@ describe('ProductService', () => {
 
   // Teste para o método createProduct
   it('should create a product', async () => {
-    const createProductDto: CreateProduct = { name: 'Test Product', description: 'Description', value: 100, status: 1, userId: '1' };
+    const createProductDto: CreateProduct = { 
+      name: 'Test Product', 
+      description: 'Description', 
+      value: 100, 
+      status: 1, 
+      userId: '31e8734e-7e96-4dfe-bc06-cbd86c2503dc' };
     jest.spyOn(prisma.product, 'create').mockResolvedValue(createProductDto as any);
     const result = await service.createProduct(createProductDto);
     expect(result).toEqual(createProductDto);
+    idtest=result.id
   });
 
   // Teste para o método getManyProducts
   it('should get many products', async () => {
-    const getManyProductsDto: GetMenyProducts = { userId: '1' };
-    const products = [{ id: '1', name: 'Test Product', description: 'Description', value: 100, status: 1, userId: '1' }];
+    const getManyProductsDto: GetMenyProducts = { userId: '31e8734e-7e96-4dfe-bc06-cbd86c2503dc' };
+    const products = [{  
+      id: idtest,
+      name: 'Test Product', 
+      description: 'Description', 
+      value: 100, 
+      status: 1, 
+      userId: '31e8734e-7e96-4dfe-bc06-cbd86c2503dc' }];
     jest.spyOn(prisma.product, 'findMany').mockResolvedValue(products as any);
     const result = await service.getManyProducts(getManyProductsDto);
     expect(result).toEqual(products);
@@ -47,11 +60,19 @@ describe('ProductService', () => {
 
   // Teste para o método getProduct
   it('should get a product', async () => {
-    const getProductDto: GetProduct = { id: '1' };
-    const product = { id: '1', name: 'Test Product', description: 'Description', value: 100, status: 1, userId: '1' };
+    const getProductDto: GetProduct = { id: idtest };
+    const product = { 
+      id: '1', 
+      name: 'Test Product', 
+      description: 'Description', 
+      value: 100, 
+      status: 1, 
+      userId: '31e8734e-7e96-4dfe-bc06-cbd86c2503dc' 
+    };
     jest.spyOn(prisma.product, 'findFirst').mockResolvedValue(product as any);
     const result = await service.getProduct(getProductDto);
-    expect(result).toEqual(product);
+    expect(result).toEqual(product)
+    ;
   });
 
   // Teste para o método deleteProduct

@@ -16,9 +16,11 @@ export class UserService {
     })
     .then((e) => {
       console.log(e);
+      return e
     })
     .catch((err) => {
       console.log(err);
+      return err
     });
     return user;
   }
@@ -37,9 +39,11 @@ export class UserService {
       }
     ).then((e) => {
       console.log(e);
+      return e
     })
     .catch((err) => {
       console.log(err);
+      return err
     });
     return user;
   }
@@ -50,9 +54,11 @@ export class UserService {
       },
     }).then((e) => {
       console.log(e);
+      return e
     })
     .catch((err) => {
       console.log(err);
+      return err
     });
     return user;
   }
@@ -65,9 +71,11 @@ export class UserService {
       },
     }).then((e) => {
       console.log(e);
+      return e
     })
     .catch((err) => {
       console.log(err);
+      return err
     });
     return user;
   }

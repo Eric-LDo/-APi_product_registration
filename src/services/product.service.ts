@@ -17,9 +17,11 @@ export class ProductService{
             },
         }).then((e) => {
             console.log(e);
+            return e
         })
         .catch((err) => {
             console.log(err);
+            return err
         });
         return product;
     }
@@ -34,8 +36,10 @@ export class ProductService{
             }
             }).then((e) => {
             console.log(e);
+            return e
         }).catch((err) => {
             console.log(err);
+            return err
         });
         return products;
     }
@@ -54,9 +58,11 @@ export class ProductService{
             },
         }).then((e) => {
             console.log(e);
+            return e
         })
         .catch((err) => {
             console.log(err);
+            return err
         });
         return product;
     }
@@ -68,8 +74,10 @@ export class ProductService{
             },
         }).then((e) => {
             console.log(e);
+            return e
         }).catch((err) => {
             console.log(err);
+            return err
         });
         return product;
     }
@@ -81,9 +89,11 @@ export class ProductService{
             }
         }).then((e) => {
             console.log(e);
+            return e
         })
         .catch((err) => {
             console.log(err);
+            return err
         });
         return product;
     }

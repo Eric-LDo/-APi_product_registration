@@ -6,15 +6,15 @@ import { CreateUser, DeleteUser, LoginUser, UpdateUser } from 'src/dtos/user';
 describe('UserService', () => {
   let service: UserService;
   let prisma: PrismaClient;
+  let idtest: string
   beforeAll(async () => {
     await prisma.user.create({
       data: {
-        id: '1',
         email: 'test@example.com',
         name: 'Test User',
         password: 'password',
       },
-    });
+    })
   });
   
   afterAll(async () => {
